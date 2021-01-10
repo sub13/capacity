@@ -16,6 +16,6 @@ namespace Teams.Data.Models
         [ForeignKey(nameof(Owner)), Required]
         public string TeamOwner { get; set; }
         public virtual IdentityUser Owner { get; set; }
-        public virtual ICollection<TeamMember> TeamMembers { get; set; }
+        public rtual ICollection<TeamMember> TeamMembers { get; set; }
     }
 }
