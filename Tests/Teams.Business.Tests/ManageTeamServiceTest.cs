@@ -71,7 +71,7 @@ namespace Teams.Business.Tests
                 var mock = teams.AsQueryable().BuildMock();
                 _teamRepository.Setup(x => x.GetAll()).Returns(mock.Object);
                 _teamRepository.Setup(x => x.DeleteAsync(It.IsAny<Team>()))
-                .ReturnsAsync(true);
+                .ReturnsAsync(false);
 
                 //Act
                 var result1 = await _manageTeamsService.RemoveAsync(teamId1);
