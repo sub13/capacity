@@ -1,5 +1,6 @@
-name: .NET
+name: .NET_Auto_Tests
 
+# this key which run our actions when we did commit or create pull request for master
 on:
   push:
     branches: [ master ]
@@ -8,9 +9,10 @@ on:
 
 jobs:
   build:
-
+    # we are using ubuntu for autoruning
     runs-on: ubuntu-latest
 
+    # our action
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
