@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CouldntGetData" xml:space="preserve">
+    <value>Не удалось получить данные!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Упс... Похоже что-то пошло не так</value>
+  </data>
   <data name="LinkFieldError" xml:space="preserve">
     <value>Неправильная ссылка!</value>
   </data>
@@ -126,10 +132,19 @@
   <data name="NameFieldError" xml:space="preserve">
     <value>Поле для имени не может быть пустым!</value>
   </data>
+  <data name="NotOwner" xml:space="preserve">
+    <value>Вы не являетесь владельцем</value>
+  </data>
   <data name="PointsFieldError" xml:space="preserve">
     <value>Кол-во СП не может быть меньше либо равно нулю!</value>
   </data>
   <data name="SprintFieldError" xml:space="preserve">
     <value>Пожалуйста, выберите спринт!</value>
+  </data>
+  <data name="StatusIsNotComplete" xml:space="preserve">
+    <value>Этот спринт не является завершенным</value>
+  </data>
+  <data name="TasksNotExists" xml:space="preserve">
+    <value>У спринта отсутствуют задачи</value>
   </data>
 </root>

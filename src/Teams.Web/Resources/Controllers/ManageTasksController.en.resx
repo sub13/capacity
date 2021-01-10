@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CouldntGetData" xml:space="preserve">
+    <value>Couldn't get data</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ooops... Something went wrong!</value>
+  </data>
   <data name="LinkFieldError" xml:space="preserve">
     <value>Incorrect link!</value>
   </data>
@@ -126,10 +132,19 @@
   <data name="NameFieldError" xml:space="preserve">
     <value>Name field can not be empty!</value>
   </data>
+  <data name="NotOwner" xml:space="preserve">
+    <value>You are not the owner</value>
+  </data>
   <data name="PointsFieldError" xml:space="preserve">
     <value>Points field can not be empty or less than 0!</value>
   </data>
   <data name="SprintFieldError" xml:space="preserve">
     <value>Please select sprint!</value>
+  </data>
+  <data name="StatusIsNotComplete" xml:space="preserve">
+    <value>Sprint isn't completed</value>
+  </data>
+  <data name="TasksNotExists" xml:space="preserve">
+    <value>This sprint haven't tasks</value>
   </data>
 </root>
