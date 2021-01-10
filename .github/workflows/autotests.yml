@@ -8,6 +8,7 @@ on:
     branches: [ master ]
 
 jobs:
+  # name action
   RunTests:
     # we are using ubuntu for autoruning
     runs-on: ubuntu-latest
