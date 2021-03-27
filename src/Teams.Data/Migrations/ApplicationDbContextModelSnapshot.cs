@@ -219,6 +219,35 @@ namespace Teams.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Teams.Data.Models.MemberWorkingDays", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MemberId")
+                        .HasColumnName("MemberId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SprintId")
+                        .HasColumnName("SprintId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkingDays")
+                        .HasColumnName("WorkingDays")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MemberId");
+
+                    b.HasIndex("SprintId");
+
+                    b.ToTable("MemberWorkingDays");
+                });
+
             modelBuilder.Entity("Teams.Data.Models.Sprint", b =>
                 {
                     b.Property<int>("Id")
@@ -272,7 +301,7 @@ namespace Teams.Data.Migrations
                         .HasColumnName("Link")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MemberId")
+                    b.Property<int?>("MemberId")
                         .HasColumnName("MemberId")
                         .HasColumnType("int");
 
@@ -281,7 +310,7 @@ namespace Teams.Data.Migrations
                         .HasColumnName("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SprintId")
+                    b.Property<int?>("SprintId")
                         .HasColumnName("SprintId")
                         .HasColumnType("int");
 
@@ -289,7 +318,7 @@ namespace Teams.Data.Migrations
                         .HasColumnName("StoryPoints")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnName("TeamId")
                         .HasColumnType("int");
 
@@ -343,7 +372,7 @@ namespace Teams.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnName("TeamId")
                         .HasColumnType("int");
 
@@ -407,6 +436,21 @@ namespace Teams.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Teams.Data.Models.MemberWorkingDays", b =>
+                {
+                    b.HasOne("Teams.Data.Models.TeamMember", "TeamMember")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Teams.Data.Models.Sprint", "Sprint")
+                        .WithMany("MemberWorkingDays")
+                        .HasForeignKey("SprintId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Teams.Data.Models.Sprint", b =>
                 {
                     b.HasOne("Teams.Data.Models.Team", "Team")
@@ -420,21 +464,15 @@ namespace Teams.Data.Migrations
                 {
                     b.HasOne("Teams.Data.Models.TeamMember", "TeamMember")
                         .WithMany()
-                        .HasForeignKey("MemberId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MemberId");
 
                     b.HasOne("Teams.Data.Models.Sprint", "Sprint")
                         .WithMany("Tasks")
-                        .HasForeignKey("SprintId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SprintId");
 
                     b.HasOne("Teams.Data.Models.Team", "Team")
                         .WithMany()
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
                 });
 
             modelBuilder.Entity("Teams.Data.Models.Team", b =>
@@ -456,9 +494,7 @@ namespace Teams.Data.Migrations
 
                     b.HasOne("Teams.Data.Models.Team", "Team")
                         .WithMany("TeamMembers")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
                 });
 #pragma warning restore 612, 618
         }
