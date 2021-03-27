@@ -1,6 +1,6 @@
 name: .NET_Auto_Tests
 
-# this key which run our actions when we did commit or create pull request for master
+# this trigger which run our actions when we did commit or create pull request for master
 on:
   push:
     branches: [ master ]
