@@ -35,7 +35,7 @@ namespace Teams.Business.Tests
                 var teams = new List<Team>
                 {
                  new Team { Id= 1, TeamOwner = "1234", TeamName = "First_Team"},
-                 new Team { Id= 2, TeamOwner = "1234", TeamName = "Second_Team"}
+                 new Team { Id= 2, TeamOwner = "123", TeamName = "Second_Team"}
                 };
                 var user = new Mock<UserDetails>(null);
                 user.Setup(x => x.Id()).Returns(teamOwner);
